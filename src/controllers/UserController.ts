@@ -7,6 +7,7 @@ import { HasherService } from "../custom/Security/HasherService";
 import AppDataSource from "../config/config-db";
 import { UsuariosDTO } from "../models/DTOs/UsuarioDTO";
 import { LoginDTO } from "../models/DTOs/LoginDTO";
+import { AuthRequest } from "../middleware/genericMiddleware";
 
 export class UserController {
   private readonly _service: IUserService;
@@ -86,6 +87,25 @@ export class UserController {
         console.error(error);
         return res.status(500).json({ message: "Error al obtener el usuario" });
 
+    }
+  }
+
+  getProfile=async(req:AuthRequest, res:Response): Promise<Response>=>{
+    try{
+      if(!req.user){
+        return res.status(401).json({message:'Access denied'});
+      }
+
+      const user=await this._service.GetUserById(req.user.id);
+      if(user==null){
+        return res.status(404).json({message:'user not found'});
+      }
+
+      return res.status(200).json(user);
+
+    }catch(error:any){
+      console.error(error);
+      return res.status(500).json({ message: "Error al obtener el usuario" });
     }
   }
 }

@@ -3,7 +3,13 @@ import { Request,Response, NextFunction } from "express";
 import jwt,{ JwtPayload } from "jsonwebtoken";
 
 export interface AuthRequest extends Request{
-    user?: JwtPayload | string;
+    /* user?: JwtPayload | string; */
+    user?:{
+        id:string;
+        email:string;
+        name:string;
+        role:string;
+    }
 }
 
 
@@ -22,7 +28,14 @@ export const authMiddleware = (allowedRoles: string[] = []) => {
             if (!secret) {
                 return res.status(500).json({ message: "JWT_SECRET is not configured" });
             }
-            const decoded = jwt.verify(token, secret) as any;
+            
+            const decoded = jwt.verify(token, secret) as {
+                id:string;
+                email:string;
+                name:string;
+                role:string;
+            };
+
             req.user = decoded;
 
             if(allowedRoles.length>0 && !allowedRoles.includes(decoded.role)){
