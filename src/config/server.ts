@@ -2,6 +2,7 @@ import AppDataSource from "./config-db";
 import express, {Application, application} from 'express';
 import userRoutes from '../routes/user.routers';
 import dotenv from 'dotenv';
+import { swaggerSetUp } from "./config-swagger";
 
 
 dotenv.config();
@@ -18,6 +19,8 @@ AppDataSource.initialize()
 
     // Montar las rutas
     app.use("/users", userRoutes); // todas las rutas de usuarios comienzan con /users
+
+    swaggerSetUp(app)
 
     // Iniciar el servidor
     app.listen(PORT, () => {
