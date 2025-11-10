@@ -15,7 +15,7 @@ let Usuarios = class Usuarios {
 };
 exports.Usuarios = Usuarios;
 __decorate([
-    PrimaryGeneratedsColumn("uuid"),
+    (0, typeorm_1.PrimaryGeneratedColumn)("uuid"),
     __metadata("design:type", String)
 ], Usuarios.prototype, "id", void 0);
 __decorate([
@@ -30,6 +30,10 @@ __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
 ], Usuarios.prototype, "contrasena", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], Usuarios.prototype, "rol", void 0);
 exports.Usuarios = Usuarios = __decorate([
     (0, typeorm_1.Entity)({ name: 'usuarios' })
 ], Usuarios);

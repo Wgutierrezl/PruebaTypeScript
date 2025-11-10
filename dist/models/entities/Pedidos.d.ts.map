@@ -1,1 +1,1 @@
-{"version":3,"file":"Pedidos.d.ts","sourceRoot":"","sources":["../../../src/models/entities/Pedidos.ts"],"names":[],"mappings":""}
+{"version":3,"file":"Pedidos.d.ts","sourceRoot":"","sources":["../../../src/models/entities/Pedidos.ts"],"names":[],"mappings":"AAGA,qBACa,OAAO;IAElB,EAAE,EAAG,MAAM,CAAA;IAGX,UAAU,EAAG,MAAM,CAAC;IAGpB,QAAQ,EAAG,MAAM,CAAC;IAGlB,QAAQ,EAAG,MAAM,CAAC;IAGlB,YAAY,EAAG,IAAI,CAAC;CAIrB"}

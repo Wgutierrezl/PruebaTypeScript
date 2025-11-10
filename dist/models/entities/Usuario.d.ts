@@ -3,5 +3,6 @@ export declare class Usuarios {
     nombre: string;
     correo: string;
     contrasena: string;
+    rol?: string;
 }
 //# sourceMappingURL=Usuario.d.ts.map
