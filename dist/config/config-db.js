@@ -1,8 +1,14 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 require("reflect-metadata");
 const typeorm_1 = require("typeorm");
 const Usuario_1 = require("../models/entities/Usuario");
 const Pedidos_1 = require("../models/entities/Pedidos");
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
 const AppDataSource = new typeorm_1.DataSource({
     type: "mysql",
     host: `${process.env.DB_HOST}`,
@@ -14,5 +20,5 @@ const AppDataSource = new typeorm_1.DataSource({
     logging: true,
     entities: [Usuario_1.Usuarios, Pedidos_1.Pedidos],
 });
-module.exports = AppDataSource;
+exports.default = AppDataSource;
 //# sourceMappingURL=config-db.js.map

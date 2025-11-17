@@ -17,4 +17,4 @@ RUN npm install --only=production
 ENV NODE_ENV=production
 
 EXPOSE 8084
-CMD ["node", "dist/index.js"]
+CMD ["node", "dist/config/server.js"]

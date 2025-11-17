@@ -2,6 +2,9 @@ import "reflect-metadata";
 import { DataSource } from "typeorm";
 import { Usuarios } from "../models/entities/Usuario";
 import { Pedidos } from "../models/entities/Pedidos";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const AppDataSource = new DataSource({
   type: "mysql",
@@ -15,4 +18,4 @@ const AppDataSource = new DataSource({
   entities: [Usuarios,Pedidos],
 });
 
-export = AppDataSource;
+export default AppDataSource;
