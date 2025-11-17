@@ -31,7 +31,12 @@ export const swaggerSetUp=(app:Application)=>{
         },
       ],
     },
-    apis: ["./src/routes/*.ts", "./src/controllers/*.ts"], // rutas donde están tus endpoints
+    apis: [
+      "./src/routes/*.ts",
+      "./src/controllers/*.ts",
+      "./dist/routes/*.js",
+      "./dist/controllers/*.js",
+    ]
   };
 
   const specs = swaggerJsDoc(options);
