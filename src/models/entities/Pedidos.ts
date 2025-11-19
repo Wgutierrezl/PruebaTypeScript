@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne } from "typeorm";
+import { Usuarios } from "./Usuario";
 
 
 @Entity({name:'pedidos'})
@@ -17,6 +18,9 @@ export class Pedidos {
 
   @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
   fecha_pedido!: Date;
+
+  @ManyToOne(() => Usuarios, usuario => usuario.pedidos)
+  usuario!: Usuarios;
 
   /* @OneToMany(() => Pedido, pedido => pedido.usuario)
   pedidos: Pedido[]; */

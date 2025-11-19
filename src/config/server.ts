@@ -1,6 +1,7 @@
 import AppDataSource from "./config-db";
 import express, {Application, application} from 'express';
 import userRoutes from '../routes/user.routers';
+import orderRoutes from '../routes/order.routers';
 import dotenv from 'dotenv';
 import { swaggerSetUp } from "./config-swagger";
 
@@ -19,6 +20,7 @@ AppDataSource.initialize()
 
     // Montar las rutas
     app.use("/users", userRoutes); // todas las rutas de usuarios comienzan con /users
+    app.use("/orders", orderRoutes); // todas las rutas de pedidos comienzan con /orders
 
     swaggerSetUp(app)
 

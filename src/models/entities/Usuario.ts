@@ -1,4 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Pedidos } from "./Pedidos";
 
 
 @Entity({name:'usuarios'})
@@ -18,7 +19,7 @@ export class Usuarios {
   @Column()
   rol?: string;
 
-  /* @OneToMany(() => Pedido, pedido => pedido.usuario)
-  pedidos: Pedido[]; */
+  @OneToMany(() => Pedidos, pedido => pedido.usuario)
+  pedidos?: Pedidos[];
 }
 
