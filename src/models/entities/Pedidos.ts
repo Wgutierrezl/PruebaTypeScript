@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne, JoinColumn } from "typeorm";
 import { Usuarios } from "./Usuario";
 
 
@@ -20,6 +20,7 @@ export class Pedidos {
   fecha_pedido!: Date;
 
   @ManyToOne(() => Usuarios, usuario => usuario.pedidos)
+  @JoinColumn({ name: "usuario_id" })
   usuario!: Usuarios;
 
   /* @OneToMany(() => Pedido, pedido => pedido.usuario)

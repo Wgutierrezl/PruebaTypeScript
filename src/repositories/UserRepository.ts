@@ -20,7 +20,10 @@ export class UserRepository implements IUserRepository{
     }
 
     async getUserById(id: string): Promise<Usuarios | null> {
-        return await this.userRepo.findOneBy({id});
+        return await this.userRepo.findOne({
+            where:{id},
+            relations:['pedidos']
+        });
     }
 
     async getAllUsers(): Promise<Usuarios[]> {

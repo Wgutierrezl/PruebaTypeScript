@@ -26,7 +26,9 @@ export class OrderRepository implements IOrderRepository{
     }
 
     async getAllOrders(): Promise<Pedidos[]> {
-        return await this.orderRepo.find();
+        return await this.orderRepo.find({
+            relations:['usuario']
+        });
         
     }
 

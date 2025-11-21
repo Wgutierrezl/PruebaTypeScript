@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, JoinColumn } from "typeorm";
 import { Pedidos } from "./Pedidos";
 
 
