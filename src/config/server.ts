@@ -20,6 +20,7 @@ AppDataSource.initialize()
 
     // Montar las rutas
     app.use("/users", userRoutes); // todas las rutas de usuarios comienzan con /users
+    console.log("Order router:", orderRoutes); 
     app.use("/orders", orderRoutes); // todas las rutas de pedidos comienzan con /orders
 
     swaggerSetUp(app)

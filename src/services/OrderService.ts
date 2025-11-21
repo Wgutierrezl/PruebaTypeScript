@@ -41,6 +41,7 @@ export class OrderService implements IOrderService {
 
     async getOrdersByUserId(userId: string): Promise<Pedidos[]> {
         const response=await this.repo.getOrderByUserId(userId);
+        console.log("Orders for user:", response);
         if(!response){
             throw new Error("No se encontraron pedidos para el usuario especificado");
         }

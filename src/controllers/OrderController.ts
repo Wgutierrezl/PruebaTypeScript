@@ -89,7 +89,10 @@ export class OrderController{
                 return res.status(401).json({message:"Acceso denegado"});
             }
 
+            console.log("Authenticated user:", req.user);
+
             const userId:string=req.user!.id;
+            console.log("Fetching orders for user ID:", userId);
             const orders:Pedidos[]=await this.orderService.getOrdersByUserId(userId);
             if(orders.length===0){
                 return res.status(404).json({message:"No se encontraron pedidos para el usuario"});

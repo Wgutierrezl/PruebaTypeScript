@@ -49,7 +49,7 @@ router.post('/registerOrder',authMiddleware(['Admin']),orderController.createOrd
 
 /**
  * @swagger
- * /users/getAllOrders:
+ * /orders/getAllOrders:
  *   get:
  *     summary: Get all orders (only Admin)
  *     tags: [Orders]
@@ -68,7 +68,7 @@ router.get('/getAllOrders',authMiddleware(['Admin']),orderController.getAllOrder
 
 /**
  * @swagger
- * /users/getOrdersById/{id}:
+ * /orders/getOrdersById/{id}:
  *   get:
  *     summary: Get order by ID (only Admin)
  *     tags: [Orders]
@@ -112,6 +112,6 @@ router.get('/getOrdersById/:id',authMiddleware(['Admin']), orderController.getOr
  *       500:
  *         description: error getting user's orders
  */
-router.get('/getProfile',authMiddleware(['Admin','Usuario']),orderController.getMyOrders);
+router.get('/getMyOrders',authMiddleware(['Admin','Usuario']),orderController.getMyOrders);
 
 export default router;
