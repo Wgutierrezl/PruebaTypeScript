@@ -31,6 +31,28 @@ export class OrderController{
         }
     }
 
+    createMyOrder=async(req:AuthRequest,res:Response):Promise<Response>=>{
+        try{
+            if(!req.user){
+                return res.status(401).json({message:"Acceso denegado"});
+            }
+
+            const userId:string=req.user!.id;
+            const orderData=req.body;
+            const newOrder:Pedidos=await this.orderService.createMyOrder(orderData,userId);
+            if(!newOrder){
+                return res.status(400).json({message:"No se pudo crear el pedido"});
+            }
+
+            return res.status(201).json(newOrder);
+
+        }catch(error){
+            console.error(error);
+            return res.status(500).json({message:"Error al crear el pedido"});
+        }
+    }
+
+
     getOrderById=async(req:Request,res:Response):Promise<Response>=>{
         try{
             if(!req.params.id){

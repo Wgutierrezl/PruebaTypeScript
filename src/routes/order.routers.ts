@@ -47,6 +47,36 @@ const orderController=new OrderController();
  */
 router.post('/registerOrder',authMiddleware(['Admin']),orderController.createOrder);
 
+
+/**
+ * @swagger
+ * /orders/registerMyOrder:
+ *   post:
+ *     summary: register new order
+ *     tags: [Orders]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               producto:
+ *                 type: string
+ *                 example: pene congelado
+ *               cantidad:
+ *                 type: integer
+ *                 example: 1
+ *     responses:
+ *       201:
+ *         description: order created   
+ *       500:
+ *         description: Error creating order
+ */
+router.post('/registerMyOrder',authMiddleware(['Admin','Usuario']),orderController.createMyOrder);
+
 /**
  * @swagger
  * /orders/getAllOrders:
